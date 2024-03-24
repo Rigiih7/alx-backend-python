@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
-"""Async Generator
-"""
-
-
-import asyncio
+""" coroutine async_generator that loops 10 times"""
 import random
+import asyncio
+from typing import Generator
 
 
-async def async_generator():
-    """Coroutine that generates random numbers between 0 and 10, one number
-    at a time.
-
-    Yields:
-        Generator[float, None, None]:  A random number between 0 and 10.
+async def async_generator() -> Generator[float, None, None]:
     """
-    for _ in range(10):
+    async_generator - function to loop 10 times
+    Arguments:
+        no arguments
+    Returns:
+        nothing
+    """
+    for i in range(10):
         await asyncio.sleep(1)
-        yield random.random() * 10
+        yield random.uniform(0, 10)
